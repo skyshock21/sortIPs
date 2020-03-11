@@ -1,7 +1,7 @@
 # sortIPs
 Python script to read IPs from file, sort ascending, remove duplicates, and output a sorted file
 
-# Output Character Count From File, Starting With Rarest Occurrences
+# Read From File, Output Any IP Addresses Found In Sorted List
 
 The script sortIPs.py allows you to input a text file containing IP addresses, and it will output a text file with any duplicate IP addresses removed, and sorted in ascending order.  It can serve as a library to be imported as well.
 
