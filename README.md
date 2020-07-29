@@ -14,3 +14,11 @@ python sortedIPs.py SomeFile.txt
 ```
 
 If running properly there will be no output but you will create a file in the same directory from which it ran containing the output.
+
+Alternately, you can run the script with the -x flag:
+
+```
+python sortedIPs.py -x SomeFile.txt
+```
+
+If running properly, the file created will contain a list of sanitized IOCs for use in threat reporting
