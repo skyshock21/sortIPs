@@ -38,7 +38,7 @@ parser = argparse.ArgumentParser(prog='sortIPs',
                                 formatter_class=argparse.RawDescriptionHelpFormatter,
                                 )
 parser.add_argument('file', type=argparse.FileType('r'))
-parser.add_argument('-x', '--sanitize', help='Sanitized IOC output', action='store_true')
+parser.add_argument('-x', help='Sanitized IOC output', action='store_true')
 parser.set_defaults(func=sortIPs)
 args = parser.parse_args()
 
