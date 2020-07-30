@@ -5,7 +5,8 @@
 # ascending order, and output a file containing that list 
 # with duplicate entries removed
 
-import sys,argparse,ipaddress
+import sys,argparse,ipaddress,urllib
+from urlib.parse import urlparse
 
 # Function Defs
 def sortIPs():
@@ -17,16 +18,22 @@ def sortIPs():
         print(ipsorted, file=f)
 
 def sanitizeIPs():
-    #TO-DO replace . with [.]
-    #TO-DO replace : with [:]
     iplist = args.file.readlines()
     uniq = list(set(iplist))
     ips = sorted(ipaddress.ip_address(line.strip()) for line in uniq)
     ipsorted = '\n'.join(map(str, ips))
-    #TO-DO sanitize ipsorted var 
     ipsanitized = ipsorted.replace(".", "[.]").replace(":", "[:]")
     with open('IOCs.txt', 'w') as f:
         print(ipsanitized, file=f)
+'''
+def sanitizeURLs():
+    urllist = args.file.readlines()
+    uniq = list(set(urllist))
+    urls = sorted(urlparse(line.strip()) for line in uniq)
+    urlsanitized = urls.scheme.replace('t','x').netloc.replace('.','[dot]').path.replace('.','[dot]')
+    with open('URL_IOCs.txt', 'w') as f:
+        print(urlsanitized, file=f)
+'''
 
 # CLI arguments & arg parser
 ex = '''example:
