@@ -25,20 +25,12 @@ def sanitizeIPs():
     ipsanitized = ipsorted.replace(".", "[.]").replace(":", "[:]")
     with open('IOCs.txt', 'w') as f:
         print(ipsanitized, file=f)
-'''
-def sanitizeURLs():
-    urllist = args.file.readlines()
-    uniq = list(set(urllist))
-    urls = sorted(urlparse(line.strip()) for line in uniq)
-    urlsanitized = urls.scheme.replace('t','x').netloc.replace('.','[dot]').path.replace('.','[dot]')
-    with open('URL_IOCs.txt', 'w') as f:
-        print(urlsanitized, file=f)
-'''
 
 # CLI arguments & arg parser
 ex = '''example:
 python3 sortIPs.py file.txt
-python3 sortIPs.py -x file.txt'''
+python3 sortIPs.py -x file.txt
+'''
 parser = argparse.ArgumentParser(prog='sortIPs',
                                 description='''Outputs a sorted list of IPs or IOCs''',
                                 epilog=ex,
@@ -46,6 +38,7 @@ parser = argparse.ArgumentParser(prog='sortIPs',
                                 )
 parser.add_argument('file', type=argparse.FileType('r'))
 parser.add_argument('-x', help='Sanitized IOC output', action='store_true')
+parser.add_argument('-u', help='Sanitized URL output', action='store_true')
 parser.set_defaults(func=sortIPs)
 args = parser.parse_args()
 
