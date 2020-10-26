@@ -6,7 +6,7 @@
 # with duplicate entries removed
 
 import sys,argparse,ipaddress,urllib
-from urlib.parse import urlparse
+from urllib.parse import urlparse
 
 # Function Defs
 def sortIPs():
